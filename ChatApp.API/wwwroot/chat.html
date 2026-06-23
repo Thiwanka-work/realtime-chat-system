@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat – SecureChat</title>
+  <meta name="description" content="SecureChat real-time chat room." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="chat-page">
+
+  <!-- Top Navigation Bar -->
+  <header class="chat-header">
+    <div class="chat-header-left">
+      <span class="logo-small">💬</span>
+      <span class="app-name">SecureChat</span>
+    </div>
+    <div class="chat-header-right">
+      <span class="connection-status" id="connection-status">
+        <span class="status-dot disconnected" id="status-dot"></span>
+        <span id="status-text">Connecting...</span>
+      </span>
+      <span class="current-user" id="current-user"></span>
+      <button class="btn-logout" id="logout-btn" title="Logout">Sign Out</button>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="chat-layout">
+
+    <!-- Sidebar: Recent Chats & Search -->
+    <aside class="sidebar">
+      <div class="sidebar-search">
+        <input type="text" id="search-input" placeholder="Search user by email..." />
+        <button id="search-btn">Search</button>
+      </div>
+      
+      <div id="search-results" class="search-results hidden">
+        <!-- Search results injected here -->
+      </div>
+
+      <div class="sidebar-title">Recent Chats</div>
+      <ul class="recent-chats-list" id="recent-chats-list">
+        <li class="chat-item loading">Loading...</li>
+      </ul>
+    </aside>
+
+    <!-- Chat Area -->
+    <main class="chat-main" id="chat-main">
+      
+      <!-- Placeholder when no chat selected -->
+      <div class="chat-placeholder" id="chat-placeholder">
+        <div class="placeholder-icon">💬</div>
+        <h2>Select a chat to start messaging</h2>
+      </div>
+
+      <!-- Active Chat Window -->
+      <div class="active-chat hidden" id="active-chat">
+        
+        <!-- Active Chat Header -->
+        <div class="active-chat-header">
+          <div class="active-user-info">
+            <span class="active-user-name" id="active-user-name">User Name</span>
+            <span class="active-user-status" id="active-user-status">Offline</span>
+          </div>
+        </div>
+
+        <div class="messages-container" id="messages-container">
+          <!-- Messages go here -->
+        </div>
+
+        <div class="typing-indicator hidden" id="typing-indicator">
+          <span>Someone is typing...</span>
+        </div>
+
+        <!-- Typing area -->
+        <div class="chat-input-area">
+          <form id="message-form">
+            <input
+              type="text"
+              id="message-input"
+              placeholder="Type a message..."
+              autocomplete="off"
+              maxlength="1000"
+              disabled
+            />
+            <button type="submit" id="send-btn" class="btn-send" disabled title="Send message">
+              Send ➤
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- SignalR client library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>

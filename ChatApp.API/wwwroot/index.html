@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login – SecureChat</title>
+  <meta name="description" content="Login to SecureChat – a real-time JWT-authenticated chat system." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-container">
+    <div class="auth-card">
+
+      <div class="auth-header">
+        <div class="logo">💬</div>
+        <h1>SecureChat</h1>
+        <p>Sign in to join the conversation</p>
+      </div>
+
+      <div id="alert-box" class="alert hidden"></div>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            autocomplete="username"
+            required
+          />
+          <span class="field-error" id="username-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" class="toggle-pwd" id="toggle-pwd" aria-label="Toggle password visibility">👁</button>
+          </div>
+          <span class="field-error" id="password-error"></span>
+        </div>
+
+        <button type="submit" class="btn-primary" id="login-btn">
+          <span class="btn-text">Sign In</span>
+          <span class="btn-spinner hidden">⏳</span>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a href="/register.html">Create one</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/js/auth.js"></script>
+</body>
+</html>
